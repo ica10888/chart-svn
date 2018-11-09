@@ -1,0 +1,23 @@
+subversion:
+  # Thanks for images provider mamohr
+  # you can see the images details from https://hub.docker.com/r/mamohr/subversion-edge
+  imageName: mamohr/subversion-edge
+  name: subversion-edge
+  labels:
+    app: subversion-edge
+    chart: subversion-edge-1.0.0
+    fullname: svn-subversion-edge
+    release: svn
+  service:
+    type: NodePort
+    # kubernetes NodePort's default ports is between 20000 and 40000
+    # when you use ports before 20000 ,provided port is not in the valid range. The range of valid ports is 20000-40000
+    # if you want to use ports before 20000
+    # modify the kubernetes configuration
+    nodeProts:
+      http: 33343
+      https: 34434
+      svn: 38080
+
+persistence:
+  storageSize: 5Gi

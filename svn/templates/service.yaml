@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "svn.fullname" . }}
+  labels:
+{{- if .Values.subversion.labels }}
+{{ toYaml .Values.subversion.labels | indent 4 }}
+{{- end }}
+spec:
+  ports:
+    - name: http-admin
+      nodePort: {{ .Values.subversion.service.nodeProts.http }}
+      port: 3343
+      protocol: TCP
+      targetPort: 3343
+    - name: https-admin
+      nodePort: {{ .Values.subversion.service.nodeProts.https }}
+      port: 4434
+      protocol: TCP
+      targetPort: 4434
+    - name: http-svn
+      nodePort: {{ .Values.subversion.service.nodeProts.svn }}
+      port: 18080
+      protocol: TCP
+      targetPort: 18080
+  selector:
+    app: subversion-edge
+    release: svn
+  type: {{ .Values.subversion.service.type }}

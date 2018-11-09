@@ -1,0 +1,14 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: {{ template "svn.fullname" . }}
+  labels:
+{{- if .Values.subversion.labels }}
+{{ toYaml .Values.subversion.labels | indent 4 }}
+{{- end }}
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{ .Values.persistence.storageSize }}

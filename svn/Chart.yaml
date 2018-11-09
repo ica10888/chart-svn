@@ -1,0 +1,15 @@
+name: svn
+version: 1.0.0
+appVersion: 1.8.17-4404.48
+description:  Subversion Edge Server is a svn repository with manage UI
+keywords:
+  - svn
+  - subversion
+  - subversioneage
+  - repository
+home: https://www.collab.net/downloads/subversion
+sources:
+  - https://hub.docker.com/r/mamohr/subversion-edge
+maintainers:
+  - name: ica10888
+    email: ica10888@gmail.com

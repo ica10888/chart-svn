@@ -1,0 +1,47 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: {{ template "svn.fullname" . }}
+  labels:
+{{- if .Values.subversion.labels }}
+{{ toYaml .Values.subversion.labels | indent 4 }}
+{{- end }}
+  annotations:
+    deployment.kubernetes.io/revision: "2"
+spec:
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: subversion-edge
+      release: svn
+  template:
+    metadata:
+      labels:
+        app: subversion-edge
+        release: svn
+    spec:
+      containers:
+      - env:
+        name: {{ template "svn.name" . }}
+        image: {{ .Values.subversion.imageName }}
+        imagePullPolicy: IfNotPresent
+        resources: {}         
+        ports:
+          - containerPort: 3343
+            name: http-admin
+          - containerPort: 4434
+            name: https-admin
+          - containerPort: 18080
+            name: http-svn             
+        volumeMounts:
+          - mountPath: /opt/csvn/data
+            name: svn-data
+      volumes:
+      - name: svn-data
+        persistentVolumeClaim:
+          claimName: {{ template "svn.fullname" . }}

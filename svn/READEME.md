@@ -8,7 +8,7 @@
 
 ### use step
 
-1. when you login in the administrator platform，the administrator account's username and password is admin/admin .  when you has already logined in ,  you can edit your password .
+1. When you login in the administrator platform，the administrator account's username and password is admin/admin .  when you have already logined in ,  you can edit your password .
 
 2. Modify users and repositories .
 

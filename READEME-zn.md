@@ -3,7 +3,7 @@
 ###  安装步骤
 
 1. 将svn文件夹放入 /root/.helm/repository/local
-2. helm install  --name svn  local/svn
+2. `helm install  --name svn  local/svn`
 3. 建立相应的 PersistentVolume 
 
 ### 使用步骤

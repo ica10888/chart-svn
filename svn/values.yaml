@@ -21,3 +21,6 @@ subversion:
 
 persistence:
   storageSize: 5Gi
+  
+# nodeSelector:
+#   kubernetes.io/hostname: ip

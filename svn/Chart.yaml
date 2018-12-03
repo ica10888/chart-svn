@@ -7,7 +7,7 @@ keywords:
   - subversion
   - subversioneage
   - repository
-home: https://www.collab.net/downloads/subversion
+home: https://github.com/ica10888/chart-svn
 sources:
   - https://hub.docker.com/r/mamohr/subversion-edge
 maintainers:

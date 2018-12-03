@@ -13,7 +13,7 @@ subversion:
     # kubernetes NodePort's default ports is between 20000 and 40000
     # when you use ports before 20000 ,provided port is not in the valid range. The range of valid ports is 20000-40000
     # if you want to use ports before 20000
-    # modify the kubernetes configuration
+    # modify the kubernetes configuration or use nginx-ingress
     nodeProts:
       http: 33343
       https: 34434

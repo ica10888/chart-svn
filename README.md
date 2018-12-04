@@ -1,6 +1,6 @@
 ## Introduction
 
-A helm chart of svn / subversion-edge  , one of the most popular version control systems running on kubernetes ,  with an administrator platform , update module and backup module .
+helm chart of svn / subversion-edge  , deploying on kubernetes ,  with an administrator platform , update module and backup module .
 
 ## documentation
 
